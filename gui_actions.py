@@ -1,16 +1,15 @@
-
 import os
 import time
 import pyautogui as pg
-import cv2
 
-def move_to_coordinates(coordinates):
+
+def move_to_coordinates(coordinates, duration):
     center_cords = pg.center(coordinates)
     pg.moveTo(center_cords[0], center_cords[1])
     print(center_cords)
 
 
-def click_on_image(image_path):
+def click_on_image(image_path, move_duration=0.5):
     found = False
     while not found:
         try:

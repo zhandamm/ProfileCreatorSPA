@@ -1,13 +1,13 @@
 import configparser
 import os
 
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-def catch_proxy(amount = 1):
+
+def catch_proxy(amount=1):
     # Инициализируем драйвер и другие переменные
     global driver
     count = 1
@@ -40,12 +40,7 @@ def catch_proxy(amount = 1):
             with open(file_path, 'w') as f:
                 pass  # Пустой файл будет создан или перезаписан
 
-    # Запрашиваем у пользователя ввод числа
-    # amount = input("Пожалуйста, введите кол-во проксей: ")
-
     try:
-        # Преобразуем введенное значение в число
-        # amount = int(amount)
         print("Выполнение началось, жди!")
     except ValueError:
         print("Введенное значение не является числом.")
@@ -58,7 +53,7 @@ def catch_proxy(amount = 1):
         # Основной цикл работы
         while count <= amount:
             driver.get(website_url)
-            
+
             # Находим необходимые элементы на странице
             get_another_button = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "button.btn.btn-primary"))
@@ -72,7 +67,8 @@ def catch_proxy(amount = 1):
 
                 try:
                     # Ожидание изменения текста кнопки или таймаут через 5 секунд
-                    WebDriverWait(driver, 5).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "button.btn.btn-primary"), "Get another"))
+                    WebDriverWait(driver, 5).until(
+                        EC.text_to_be_present_in_element((By.CSS_SELECTOR, "button.btn.btn-primary"), "Get another"))
 
                     if "text-danger" in ip_element.get_attribute("class"):
                         continue
@@ -95,6 +91,3 @@ def catch_proxy(amount = 1):
 
     finally:
         driver.quit()
-
-
-
