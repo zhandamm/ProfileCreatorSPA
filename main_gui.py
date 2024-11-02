@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from tkinter import filedialog
 import configparser
+import os
 
 # Установка темной темы и размера окна
 ctk.set_appearance_mode("dark")  # Темная тема
@@ -10,6 +11,16 @@ ctk.set_default_color_theme("dark-blue")  # Цветовая схема
 app = ctk.CTk()
 app.title("Мое Приложение")
 app.geometry("450x350")  # Размер окна
+
+config = configparser.ConfigParser()
+
+
+def load_settings():
+    if os.path.exists('config.ini'):
+        config.read('config.ini')
+        if 'SETTINGS' in config:
+            aqum_entry.insert(0, config['SETTINGS'].get('aqum_path', ''))
+            proxy_entry.insert(0, config['SETTINGS'].get('website_url', ''))
 
 
 # Функция для кнопки "Запуск"
@@ -33,13 +44,6 @@ def show_main():
 
     # Отображаем главные элементы
     main_frame.pack(fill="both", expand=True, padx=20, pady=20)
-
-
-# Функция для смены темы
-def change_theme():
-    current_mode = ctk.get_appearance_mode()
-    new_mode = "light" if current_mode == "dark" else "dark"
-    ctk.set_appearance_mode(new_mode)
 
 
 # Функция для выбора пути к файлу aqum.exe
@@ -80,7 +84,7 @@ label = ctk.CTkLabel(settings_frame, text="Настройки приложени
 label.grid(row=0, column=0, columnspan=3, pady=(10, 20))
 
 # Поле для ввода пути к файлу aqum.exe и кнопка для выбора файла
-aqum_label = ctk.CTkLabel(settings_frame, text="Путь к aqum.exe:")
+aqum_label = ctk.CTkLabel(settings_frame, text="Путь к AQUM Browser.exe:")
 aqum_label.grid(row=1, column=0, sticky="w", padx=10, pady=5)
 
 aqum_entry = ctk.CTkEntry(settings_frame, width=300)
@@ -89,9 +93,8 @@ aqum_entry.grid(row=2, column=0, padx=10, pady=5)
 aqum_browse_button = ctk.CTkButton(settings_frame, text="Выбрать", command=browse_aqum_path, width=40)
 aqum_browse_button.grid(row=2, column=2, padx=4, pady=5)
 
-
 # Поле для ввода ссылки на сайт с проксями
-proxy_label = ctk.CTkLabel(settings_frame, text="Ссылка на сайт:")
+proxy_label = ctk.CTkLabel(settings_frame, text="Ссылка на прокси:")
 proxy_label.grid(row=4, column=0, sticky="w", padx=10, pady=5)
 
 proxy_entry = ctk.CTkEntry(settings_frame, width=300)
@@ -102,6 +105,9 @@ apply_button.grid(row=6, column=0, pady=(5, 10))
 # Кнопка "Назад" для возврата к основному интерфейсу
 back_button = ctk.CTkButton(settings_frame, text="Назад", command=show_main)
 back_button.grid(row=7, column=0, padx=10, pady=(5, 10))
+
+# Загрузка настроек при инициализации
+load_settings()
 
 # Запуск приложения
 app.mainloop()
