@@ -70,6 +70,13 @@ def save_settings():
 main_frame = ctk.CTkFrame(master=app)
 main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
+# Поле для ввода количества профилей
+profile_count_label = ctk.CTkLabel(master=main_frame, text="Количество профилей:")
+profile_count_label.pack(pady=(10, 0))
+
+profile_count_entry = ctk.CTkEntry(master=main_frame, width=140)
+profile_count_entry.pack(pady=5)
+
 run_button = ctk.CTkButton(master=main_frame, text="Запуск", command=on_button_click)
 run_button.pack(pady=10)
 
