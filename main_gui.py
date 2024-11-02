@@ -1,4 +1,7 @@
+import time
+
 import customtkinter as ctk
+import gui_actions
 from tkinter import filedialog
 import configparser
 import os
@@ -9,7 +12,7 @@ ctk.set_default_color_theme("dark-blue")  # Цветовая схема
 
 # Создаем главное окно
 app = ctk.CTk()
-app.title("Мое Приложение")
+app.title("ProfileCreator")
 app.geometry("450x350")  # Размер окна
 
 config = configparser.ConfigParser()
@@ -26,6 +29,9 @@ def load_settings():
 # Функция для кнопки "Запуск"
 def on_button_click():
     print("Запуск нажат")
+    gui_actions.run_ahk_proxyPaster()
+    time.sleep(0.75)
+    gui_actions.close_window("proxyPaster.ahk")
 
 
 # Функция для перехода на панель "Настройки"
