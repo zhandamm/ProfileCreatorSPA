@@ -25,7 +25,7 @@ def wait_for_image_to_disappear(image_path):
             break
 
 
-def main(amount=1):
+def create_profiles(amount=1):
     global driver, get_another_button, ip_element
 
     count = 1
@@ -70,5 +70,5 @@ def main(amount=1):
 if __name__ == "__main__":
     amount = input("Пожалуйста, введите кол-во профилей: ")
 
-    main(int(amount))
+    create_profiles(int(amount))
     exit()

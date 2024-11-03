@@ -39,6 +39,7 @@ def on_button_click(amount=0):
     gui_actions.run_ahk_proxyPaster()
     time.sleep(0.75)
     gui_actions.close_window("proxyPaster.ahk")
+    gui_actions.collapse_all_windows()
     main.create_profiles(amount)
 
 
@@ -128,10 +129,8 @@ apply_button.grid(row=6, column=0, pady=(5, 10))
 back_button = ctk.CTkButton(settings_frame, text="Назад", command=show_main)
 back_button.grid(row=7, column=0, padx=10, pady=(5, 10))
 
-gui_actions.collapse_all_windows()
 # Загрузка настроек при инициализации
 load_settings()
 
 # Запуск приложения
 app.mainloop()
-

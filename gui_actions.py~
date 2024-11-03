@@ -42,7 +42,7 @@ def close_window(window_title: str):
 def collapse_all_windows():
     pg.hotkey('win', 'd')
 
-
+collapse_all_windows()
 def run_ahk_proxyPaster():
     try:
         os.startfile(os.path.join(project_dir, "proxyPaster.ahk"))
