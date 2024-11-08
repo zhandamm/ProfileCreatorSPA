@@ -1,3 +1,4 @@
 PyAutoGUI~=0.9.54
 customtkinter~=5.2.2
 selenium~=4.26.0
+opencv-python~=4.10.0.84
