@@ -15,7 +15,8 @@
 # 0.1 Дальше нажмите и скачайте файл как на скриншоте
 
 
-![image](https://github.com/user-attachments/assets/61000dbd-4648-4639-bd66-4827c53fb816)
+![image](https://github.com/user-attachments/assets/e51d6630-f286-4618-a608-3892d038fbf2)
+
 
 
 # 1. Распаковка. Важно!!!! Что бы архив куда вы будете выгружать скрипт был по пути D:\SPA или C:\SPA
