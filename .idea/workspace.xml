@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="922794c9-e029-4fa7-8198-9711900f46a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ProfileCreatorPublicVersion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProfileCreatorPublicVersion.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/namesPaster.ahk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_names.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui_actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/chainToProfile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/confirm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/editProxy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/hostOrAutofill.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/hostOrAutofill.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/noProxy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/protocol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/quickProfile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/socks5.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/socks5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_gui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,16 +47,24 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Python.gui_actions.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
     &quot;Python.main_gui.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/showt/PycharmProjects/ProfileCreatorPublicVersion&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\showt\PycharmProjects\ProfileCreatorPublicVersion\images" />
       <recent name="C:\Users\Nitro 5\PycharmProjects\ProfileCreatorPublicVersion" />
     </key>
   </component>
@@ -64,6 +82,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -77,7 +96,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23726.102" />
+        <option value="bundled-python-sdk-5e1850174b45-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23726.102" />
       </set>
     </attachedChunks>
   </component>
@@ -89,7 +109,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730314283526</updated>
+      <workItem from="1731250882482" duration="636000" />
+      <workItem from="1731347959949" duration="429000" />
+      <workItem from="1731348411141" duration="2535000" />
+      <workItem from="1731604627534" duration="1055000" />
+      <workItem from="1731752474909" duration="7166000" />
+      <workItem from="1731863908797" duration="935000" />
+      <workItem from="1731932406402" duration="291000" />
+      <workItem from="1731934902288" duration="7176000" />
+      <workItem from="1732022330585" duration="2392000" />
+      <workItem from="1732030631551" duration="342000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ProfileCreatorPublicVersion$gui_actions.coverage" NAME="gui_actions Coverage Results" MODIFIED="1731604662140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ProfileCreatorPublicVersion$main_gui.coverage" NAME="main_gui Coverage Results" MODIFIED="1731936692074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ProfileCreatorPublicVersion$main.coverage" NAME="main Coverage Results" MODIFIED="1731939897625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

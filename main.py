@@ -25,6 +25,25 @@ def wait_for_image_to_disappear(image_path):
             break
 
 
+def wait_for_image_to_appear(image_path):
+    while True:
+        try:
+            # Attempt to locate the image on the screen
+            found_cords = pg.locateOnScreen(image_path, confidence=0.75)
+
+            # If the image is found, exit the loop
+            if found_cords:
+                print("Изображение появилось на экране.")
+                break
+            # If the image is not found, wait and repeat the check
+            else:
+                print("Изображение не найдено. Ждем 1 секунду.")
+                time.sleep(1)
+        except pg.ImageNotFoundException:
+            print("Изображение не найдено. Ждем 1 секунду.")
+            time.sleep(1)
+
+
 def create_profiles(amount=1):
     global driver, get_another_button, ip_element
 
@@ -38,31 +57,39 @@ def create_profiles(amount=1):
         os.startfile(config_file_path)
         time.sleep(1)
 
-        gui_actions.click_on_image(config_definer.image_path("quickProfile.png"), 0.1)
-        time.sleep(1)
+        gui_actions.click_on_image(config_definer.image_path("createNewProfile.png"))
+        time.sleep(0.05)
 
-        gui_actions.click_on_image(config_definer.image_path("noProxy.png"), 0.1)
-        time.sleep(1)
+        gui_actions.click_on_image(config_definer.image_path("profileNameField.png"))
+        time.sleep(0.05)
+        pg.hotkey('alt', '2')
+        time.sleep(0.05)
 
-        gui_actions.click_on_image(config_definer.image_path("chainToProfile.png"), 0.1)
-        time.sleep(1)
+        gui_actions.click_on_image(
+            config_definer.image_path("connectionField.png"))
+        time.sleep(0.05)
 
-        gui_actions.click_on_image(config_definer.image_path("protocol.png"), 0.1)
-        time.sleep(1)
+        gui_actions.click_on_image(
+            config_definer.image_path("pinnedToProfile.png"))
+        time.sleep(0.05)
 
-        gui_actions.click_on_image(config_definer.image_path("socks5.png"), 0.1)
-        time.sleep(1)
+        gui_actions.click_on_image(
+            config_definer.image_path("socks5Arrow.png"))
+        time.sleep(0.05)
 
-        gui_actions.click_on_image(config_definer.image_path("hostOrAutofill.png"), 0.1)
-        time.sleep(1)
+        gui_actions.click_on_image(
+            config_definer.image_path("socks5.png"))
+        time.sleep(0.05)
+
+        gui_actions.click_on_image(
+            config_definer.image_path("hostOrAutofill.png"))
+        time.sleep(0.05)
         pg.hotkey('alt', '1')
-        time.sleep(1)
+        time.sleep(0.05)
 
-        gui_actions.click_on_image(config_definer.image_path("confirm.png"), 0.1)
-        time.sleep(1)
-
-        wait_for_image_to_disappear(config_definer.image_path("editProxy.png"))
-        time.sleep(1)
+        gui_actions.click_on_image(
+            config_definer.image_path("create.png"))
+        time.sleep(0.05)
 
         count = count + 1
 

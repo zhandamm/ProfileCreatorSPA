@@ -11,12 +11,13 @@ def move_to_coordinates(coordinates, duration):
     print(center_cords)
 
 
-def click_on_image(image_path, move_duration=0.5):
+def click_on_image(image_path, move_duration=0.1):
     found = False
     while not found:
         try:
             founded_cords = pg.locateOnScreen(image_path, confidence=0.75)
             if founded_cords:
+                # pg.moveTo(founded_cords, duration= move_duration)
                 pg.click(founded_cords)
                 found = True
             else:
@@ -46,6 +47,15 @@ def collapse_all_windows():
 def run_ahk_proxyPaster():
     try:
         os.startfile(os.path.join(project_dir, "proxyPaster.ahk"))
+
+        print("Скрипт запущен.")
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
+
+
+def run_ahk_profileNames():
+    try:
+        os.startfile(os.path.join(project_dir, "namesPaster.ahk"))
 
         print("Скрипт запущен.")
     except Exception as e:

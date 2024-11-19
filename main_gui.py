@@ -1,12 +1,18 @@
 import time
+from doctest import master
 
 import customtkinter as ctk
 import gui_actions
 from tkinter import filedialog
 import configparser
 import os
+import pyautogui as pg
 
 import main
+
+
+from catch_proxy import catch_proxy
+
 
 # Установка темной темы и размера окна
 ctk.set_appearance_mode("dark")  # Темная тема
@@ -19,7 +25,6 @@ app.geometry("450x350")  # Размер окна
 
 config = configparser.ConfigParser()
 
-
 def load_settings():
     if os.path.exists('config.ini'):
         config.read('config.ini')
@@ -29,32 +34,51 @@ def load_settings():
 
 
 # Функция для кнопки "Запуск"
-def on_button_click(amount=0):
+def start_profile_creator(amount=0):
     """Запускает процесс, если значение amount больше нуля."""
     if amount == 0:
         print("Количество равно нулю, выполнение не требуется.")
         return  # Выход из функции, если amount равно нулю
 
     print("Запуск нажат")
-    gui_actions.run_ahk_proxyPaster()
+    gui_actions.collapse_all_windows()
     time.sleep(0.75)
     gui_actions.close_window("proxyPaster.ahk")
     main.create_profiles(amount)
 
 
+def start_proxy_catcher():
+    catch_proxy()
+
+
+
 # Функция для перехода на панель "Настройки"
 def show_settings():
     # Скрываем главные элементы
-    main_frame.pack_forget()
+    hide_all_frames()
 
     # Отображаем панель настроек
     settings_frame.pack(fill="both", expand=True, padx=20, pady=20)
 
 
+def show_proxy_paster():
+    # Скрываем остальные фреймы
+    hide_all_frames()
+
+    # Показываем фрейм Proxy Paster
+    proxy_paster_frame.pack(fill="both", expand=True, padx=20, pady=20)
+
+
+def hide_all_frames():
+    main_frame.pack_forget()
+    settings_frame.pack_forget()
+    proxy_paster_frame.pack_forget()
+
+
 # Функция для возврата к основному интерфейсу
 def show_main():
     # Скрываем панель настроек
-    settings_frame.pack_forget()
+    hide_all_frames()
 
     # Отображаем главные элементы
     main_frame.pack(fill="both", expand=True, padx=20, pady=20)
@@ -88,15 +112,56 @@ main_frame.pack(fill="both", expand=True, padx=20, pady=20)
 profile_count_label = ctk.CTkLabel(master=main_frame, text="Количество профилей:")
 profile_count_label.pack(pady=(10, 0))
 
-profile_count_entry = ctk.CTkEntry(master=main_frame, width=140)
+profile_count_entry= ctk.CTkEntry(master=main_frame, width=140)
 profile_count_entry.pack(pady=5)
 
+
+
 run_button = ctk.CTkButton(master=main_frame, text="Запуск",
-                           command=lambda: on_button_click(int(profile_count_entry.get())))
+                           command=lambda: start_profile_creator(int(profile_count_entry.get())))
 run_button.pack(pady=10)
+
+# Добавление кнопки для перехода на фрейм Proxy Paster в главный фрейм
+proxy_paster_button = ctk.CTkButton(master=main_frame, text="Прокси", command=show_proxy_paster)
+proxy_paster_button.pack(pady=10)
 
 settings_button = ctk.CTkButton(master=main_frame, text="Настройки", command=show_settings)
 settings_button.pack(pady=10)
+
+
+
+
+
+
+
+
+# TODO Proxy frame
+
+# Добавление фрейма для Proxy Paster
+proxy_paster_frame = ctk.CTkFrame(master=app)
+
+
+# Поле для ввода количества профилей
+profile_count_label = ctk.CTkLabel(master=proxy_paster_frame, text="Количество прокси:")
+profile_count_label.pack(pady=(10, 0))
+
+proxy_count_entry= ctk.CTkEntry(master=proxy_paster_frame, width=140)
+proxy_count_entry.pack(pady=5)
+
+run_button = ctk.CTkButton(master=proxy_paster_frame, text="Запуск",
+                           command=lambda: catch_proxy(int(proxy_count_entry.get())))
+run_button.pack(pady=10)
+
+# Кнопка для возврата к главному экрану
+proxy_back_button = ctk.CTkButton(proxy_paster_frame, text="Назад", command=show_main)
+proxy_back_button.pack(pady=(5, 10))
+
+
+
+
+
+
+# TODO Settings frame
 
 # Фрейм для настроек
 settings_frame = ctk.CTkFrame(master=app)
@@ -128,10 +193,8 @@ apply_button.grid(row=6, column=0, pady=(5, 10))
 back_button = ctk.CTkButton(settings_frame, text="Назад", command=show_main)
 back_button.grid(row=7, column=0, padx=10, pady=(5, 10))
 
-gui_actions.collapse_all_windows()
 # Загрузка настроек при инициализации
 load_settings()
 
 # Запуск приложения
 app.mainloop()
-
