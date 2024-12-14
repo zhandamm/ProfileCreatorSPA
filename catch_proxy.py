@@ -1,5 +1,7 @@
 import configparser
 import os
+import threading
+import math
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -7,7 +9,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-def catch_proxy(amount=1):
+
+def catch_proxy(amount=1, threads=1):
     # Инициализируем драйвер и другие переменные
     global driver
     count = 1
@@ -46,7 +49,19 @@ def catch_proxy(amount=1):
         print("Введенное значение не является числом.")
         input("Нажмите Enter для выхода...")
         return
+    t1 = []
+    try:
+        for i in range(0, threads):
+            t1.append(threading.Thread(target=parseProxy, args=(math.ceil(amount/threads)*i, math.ceil(amount/threads)*(i+1), file_path, website_url)))
+        for i in range(0, len(t1)):
+            t1[i].start()
+        for i in range(0, len(t1)):
+            t1[i].join()
+    except Exception as e:
+        print("Произошла ошибка:", e)
 
+
+def parseProxy( count, amount, file_path, website_url):
     # Инициализация драйвера
     driver = webdriver.Firefox()
     try:
@@ -91,3 +106,4 @@ def catch_proxy(amount=1):
 
     finally:
         driver.quit()
+
