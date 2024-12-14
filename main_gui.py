@@ -148,8 +148,14 @@ profile_count_label.pack(pady=(10, 0))
 proxy_count_entry= ctk.CTkEntry(master=proxy_paster_frame, width=140)
 proxy_count_entry.pack(pady=5)
 
+profile_threads_count_label = ctk.CTkLabel(master=proxy_paster_frame, text="Количество браузеров:")
+profile_threads_count_label.pack(pady=(10, 0))
+
+proxy_threads_count_entry= ctk.CTkEntry(master=proxy_paster_frame, width=140)
+proxy_threads_count_entry.pack(pady=5)
+
 run_button = ctk.CTkButton(master=proxy_paster_frame, text="Запуск",
-                           command=lambda: catch_proxy(int(proxy_count_entry.get())))
+                           command=lambda: catch_proxy(int(proxy_count_entry.get()),int(proxy_threads_count_entry.get())))
 run_button.pack(pady=10)
 
 # Кнопка для возврата к главному экрану
